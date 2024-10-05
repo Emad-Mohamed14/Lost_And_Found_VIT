@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        * {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .title {
+            position: relative;
+            text-align: center;
+            color: white;
+            height: 300px; /* Adjust height as needed */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: left;
+        }
+
+        .title img {
+            width: 100%;
+            height: 100%;
+            object-fit:cover; /* Ensures the image covers the area */
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1; /* Places the image behind other content */
+        }
+
+        .title h1, .title h3 {
+            text-align: left;
+            color: black;
+            padding-left: 20px;
+            margin: 5px;
+        }
+
+        .title h1 {
+            font-size: 3rem;
+        }
+
+        .title h3 {
+            font-size: 1.5rem;
+        }
+
+        .search {
+            position: absolute;
+            top: 20px; /* Adjust to position the search box */
+            right: 20px; /* Aligns the search box to the right */
+            z-index: 1;
+        }
+
+        .search-box {
+            width: 300px;
+            height: 40px; /* Adjust height for better appearance */
+            font-size: 16px;
+            padding: 16px;
+            padding-left: 40px; /* Add space for the icon */
+            border: 1px solid black;
+            border-radius: 4px;
+            outline: none;
+            background-color: #fff;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            color: gray;
+        }
+
+        .post-lost-btn {
+            font-size: 24px;
+            padding: 10px 20px;
+            background-color: #c52626;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        .post-lost-btn:hover {
+            background-color: #a20000;
+        }
+
+        .post-product-btn {
+            font-size: 24px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        .post-product-btn:hover {
+            background-color: #218838;
+        }
+
+        /* User Profile Icon Styles */
+        #user-profile-icon {
+            position: absolute; /* Allows you to position it relative to the nearest positioned ancestor */
+            top: 20px; /* Distance from the top of the page */
+            left: 20px; /* Distance from the left of the page */
+            z-index: 1000; /* Ensures the icon is above other content */
+        }
+
+        #user-profile-icon img {
+            width: 50px; /* Set the width of the icon */
+            height: auto; /* Maintain aspect ratio */
+            cursor: pointer; /* Change cursor to pointer on hover */
+        }
+
+        #user-profile-icon img:hover {
+            opacity: 0.8; /* Add a hover effect */
+        }
+
+        #my-products-icon {
+            position: absolute;
+            top: 20px;
+            left: 100px; /* Adjust based on your layout */
+            font-size: 20px;
+            color: black;
+            text-align: center;
+        }
+
+        #my-products-icon i {
+            margin-right: 5px;
+        }
+
+        #my-products-icon a {
+            text-decoration: none;
+            color: black;
+        }
+
+        #my-products-icon a:hover {
+            color: #007bff; /* Change color on hover */
+        }
+
+        .logout-container {
+            text-align: right;
+            margin-right: 20px;
+            margin-top: 20px;
+        }
+
+        .logout-button {
+            background-color: #ff4c4c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .logout-button:hover {
+            background-color: #e60000;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="title">
+        <img src="../static/imgfol/new.jpg" alt="Background">
+        <h1>Lost and Found</h1>
+        <h3>Vellore Institute of Technology</h3>
+        <div class="search">
+            <i class="fas fa-search search-icon"></i> <!-- Search Icon -->
+            <input type="text" name="query" class="search-box" placeholder="Search for Products">
+        </div>
+    </div>
+    <a href="{{ url_for('post_lost') }}">
+        <button class="post-lost-btn">
+            I've Lost Something + 
+        </button>
+    </a>
+    <a href="{{ url_for('post_found') }}">
+        <button class="post-product-btn">
+            I've Found Something + 
+        </button>
+    </a>
+    <div id="user-profile-icon">
+        <a href="{{ url_for('user_profile') }}">
+            <img src="../static/imgfol/profile_icon.jpg" alt="Profile Icon">
+        </a>
+    </div>
+
+    <div id="my-products-icon">
+        <a href="{{ url_for('my_products') }}">
+            <i class="fas fa-box-open"></i>
+            <span>My Products</span>
+        </a>
+    </div>
+    <div id="items_found"></div>
+        <a href="{{ url_for('items_found') }}">
+            <i class="fas fa-box-open"></i>
+            <span>Items Found</span>
+        </a>
+    </div>
+    <div id="items_lost">
+        <a href="{{ url_for('items_lost') }}">
+            <i class="fas fa-box-open"></i>
+            <span>Items Lost</span>
+        </a>
+    </div>
+    <div class="logout-container">
+        <form action="{{ url_for('logout') }}" method="POST">
+            <button type="submit" class="logout-button">Logout</button>
+        </form>
+    </div>
+</body>
+</html>

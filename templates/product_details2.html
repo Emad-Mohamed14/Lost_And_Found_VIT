@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ found[1] }} - Lost And Found</title>
+    <link rel="stylesheet" href="../static/CSS/styles.css">
+    <style>
+
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="main-nav">
+            <div class="header">
+                <img src="../static/imgfol/logo.jpg" alt="VIT Chennai">
+            </div>
+        </nav>
+    </header>
+
+    <div class="background">
+        <div class="product-container">
+            <div class="product-image-gallery">
+                <img src="{{ url_for('static', filename=found[4].replace('static/', '').replace('\\', '/')) }}" alt="Image Path: {{ found[4] }}">
+            </div>
+            <div class="product-details">
+                <h1>{{ found[1] }}</h1>
+                <h3><p>{{ found[2] }}</p></h3>
+                <div class="product-rating">
+                    <span>{{ found[3] }}</span> <br> <br>
+                    <span>Posted on: {{ found[5] }} </span> <br>
+                </div>
+                <div class="product-pricing">
+                    <span class="location">Location - {{ found[10] }}</span> <br> <br>
+                    <span class="location-add">Block - {{ found[7] }}</span> <br>
+                    <span class="location-add">Floor - {{ found[8] }}</span> <br>
+                    <span class="location-add">Room - {{ found[9] }}</span>
+                </div>
+                <div class = "posted-by">
+                    Posted By <br><br>
+                    <span class="location">Registration Number: {{ found[12] }}</span> <br>
+                    <span class="location">Name: {{ found[14] }}</span> <br>
+                    <span class="location">Phone: {{ found[16] }}</span> <br>
+                    <span class="location">Email: {{ found[17] }}</span> <br>
+                </div>
+                <div class="product-actions">
+                    <a href="{{ url_for('first_webpage') }}">
+                        <button type="submit" class="home">Home</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

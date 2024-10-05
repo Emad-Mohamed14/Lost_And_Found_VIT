@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Deals - Signup</title>
+    <link rel="stylesheet" href="../static/CSS/login-signup.css">
+</head>
+<body>
+    <div class="header">
+        <img src="../static/imgfol/logo.jpg" alt="Smart Deals Logo">
+    </div>
+    
+    <div class="background-grid">
+        <div class="background-grid">
+            <img src="../static/imgfol/1.jpg" alt="Product 1">
+            <img src="../static/imgfol/2.jpg" alt="Product 2">
+            <img src="../static/imgfol/3.jpg" alt="Product 3">
+            <img src="../static/imgfol/4.jpg" alt="Product 4">
+            <img src="../static/imgfol/5.jpg" alt="Product 5">
+            <img src="../static/imgfol/6.jpg" alt="Product 6">
+            <img src="../static/imgfol/7.jpg" alt="Product 7">
+            <img src="../static/imgfol/8.jpg" alt="Product 7">
+            <img src="../static/imgfol/9.jpg" alt="Product 7">
+            <img src="../static/imgfol/10.jpg" alt="Product 7">
+            <img src="../static/imgfol/11.jpg" alt="Product 7">
+            <img src="../static/imgfol/12.jpg" alt="Product 7">
+            <img src="../static/imgfol/13.jpg" alt="Product 7">
+            <img src="../static/imgfol/14.jpg" alt="Product 7">
+            <img src="../static/imgfol/15.jpg" alt="Product 7">
+            <img src="../static/imgfol/16.jpg" alt="Product 7">
+            <img src="../static/imgfol/17.jpg" alt="Product 7">
+            <img src="../static/imgfol/18.jpg" alt="Product 7">
+    </div>
+
+    <div class="overlay signup-overlay">
+        <div class="signup-box">
+            <h2>Signup for Lost and Found</h2>
+            <form action="{{ url_for('signup') }}" method="POST">
+
+                <label for="student_name">Name:</label><br>
+                <input type="text" id="student_name" name="student_name" required placeholder="Enter your name"><br><br>
+
+                <label for="reg">Registration Number:</label><br>
+                <input type="text" id="reg" name="reg" required placeholder="Enter your Registration Number"><br><br>
+                
+                <label>You Are?</label><br>
+                <input type="radio" id="Day Scholar" name="student_type" value="Day Scholar" required>
+                <label for="Day Scholar">Day Scholar</label>
+                <input type="radio" id="Hosteller" name="student_type" value="Hosteller">
+                <label for="Hosteller">Hosteller</label><br>
+        
+                <label for="phone">Phone:</label><br>
+                <input type="number" id="phone" name="phone" required placeholder="Enter your Phone Number"><br><br>
+        
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required placeholder="Enter your email"><br><br>
+        
+                <label for="address">Address:</label><br>
+                <input type="text" id="address" name="address" required placeholder="Enter your address"><br><br>
+
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password" required placeholder="Create a password"><br><br>
+        
+                <label for="confirm_password">Confirm Password:</label><br>
+                <input type="password" id="confirm_password" name="confirm_password" required placeholder="Confirm your password"><br><br>
+        
+                <input type="submit" value="Signup">
+            </form>
+            <p class="back-link"><a href="{{ url_for('login') }}">Back to Login</a></p>
+        </div>
+    </div>
+</body>
+</html>

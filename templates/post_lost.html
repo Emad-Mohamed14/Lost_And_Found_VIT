@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post an Item Lost</title>
+    <link rel="stylesheet" href="../static/CSS/post_found.css">
+</head>
+<body>
+
+    <h2>Post an Item Lost</h2>
+
+    <form action="{{ url_for('post_lost') }}" method="POST" enctype="multipart/form-data">
+        <label for="item_name">Item Name:</label>
+        <input type="text" id="item_name" name="item_name" required><br><br>
+
+        <label for="item_type">Category:</label>
+        <input type="text" id="item_type" name="item_type" required><br><br>
+
+        <label for="item_description">Item Description:</label>
+        <textarea id="item_description" name="item_description" required></textarea><br><br>
+
+        <label for="image">Item Image:</label>
+        <input type="file" id="image" name="image" accept="image/*"><br><br>
+
+        <label for="lost_date">Lost Date:</label>
+        <input type="date" id="lost_date" name="lost_date" required><br><br>
+
+        <label>Where Did You Last See?</label><br>
+        <input type="radio" id="Inside a Block" name="location_type" value="Inside a Block" required>
+        <label for="Inside a Block">Inside a Block</label>
+        <input type="radio" id="Outside a Block" name="location_type" value="Outside a Block">
+        <label for="Outside a Block">Outside a Block</label><br>
+
+        <label for="block_name">Block Name:</label>
+        <input type="text" id="block_name" name="block_name" placeholder="Enter Block Name"><br><br>
+
+        <label for="floor_no">Floor:</label><br>
+        <input type="number" id="floor_no" name="floor_no" placeholder="Enter Floor Number"><br><br>
+
+        <label for="room_no">Room:</label>
+        <input type="text" id="room_no" name="room_no" placeholder="Enter Room Number"><br><br>
+
+        <label for="location_details">Last Seen Details:</label>
+        <textarea id="location_details" name="location_details" required placeholder="Tell Where You Last Saw"></textarea><br><br>
+
+        <input type="submit" value="Post Item">
+    </form>
+
+</body>
+</html>

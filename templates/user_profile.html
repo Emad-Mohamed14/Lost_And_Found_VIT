@@ -1,0 +1,25 @@
+<!-- user_profile.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/CSS/styles.css"> <!-- Add your CSS file if needed -->
+    <title>User Profile</title>
+</head>
+<body>
+    <div class="profile-container">
+        <h1 class="profile-title">User Profile</h1>
+        <div class="profile-info">
+            <p><strong>Name:</strong> <span id="user-name">{{ student_name }}</span></p>
+            <p><strong>Registration Number:</strong> <span id="user-gender">{{ reg }}</span></p>
+            <p><strong>Phone:</strong> <span id="user-age">{{ phone }}</span></p>
+            <p><strong>Address:</strong> <span id="user-address">{{ address }}</span></p>
+            <p><strong>Email:</strong> <span id="user-email">{{ email }}</span></p>
+            <p><strong>Student Type:</strong> <span id="user-username">{{ student_type }}</span></p>
+            <p><strong>Number of Items Found:</strong> <span id="user-product-count">{{ found_items_count }}</span></p>
+        </div>
+        <a class="back-button" href="{{ url_for('first_webpage') }}">Back to Home</a>
+    </div>
+</body>
+</html>
